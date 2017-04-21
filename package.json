@@ -8,7 +8,8 @@
   "homepage": "https://github.com/jonathantneal/document-promises#readme",
   "bugs": "https://github.com/jonathantneal/document-promises/issues",
   "main": "document-promises.js",
-  "module": "document-promises.es6",
+  "module": "document-promises.js",
+  "jsnext:main": "document-promises.js",
   "files": [
     "callback-versions",
     "document-promises.es6",
@@ -27,13 +28,8 @@
     "node": ">=4.5.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.18.0",
-    "babel-preset-env": "^1.1.8",
-    "echint": "^3.0.0",
-    "echint-config-dev": "^1.0.0",
     "eslint": "^3.8.1",
-    "eslint-config-dev": "^1.0.0",
-    "pre-commit": "^1.2.2"
+    "eslint-config-dev": "^1.0.0"
   },
   "babel": {
     "presets": [
@@ -70,5 +66,8 @@
     "promise",
     "ponyfill",
     "polyfill"
-  ]
+  ],
+  "dependencies": {
+    "pinkie-promise": "^2.0.1"
+  }
 }
