@@ -3,7 +3,7 @@ import Promise from "pinkie-promise";
 // thenfied document ready states
 function thenify(type, readyState) {
   return new Promise(function(resolve) {
-    const listener = function() {
+    var listener = function() {
       if (readyState.test(document.readyState)) {
         document.removeEventListener(type, listener);
 
