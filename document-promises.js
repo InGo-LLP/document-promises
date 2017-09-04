@@ -1,22 +1,23 @@
 import Promise from "pinkie-promise";
 
 // thenfied document ready states
-const thenify = (type, readyState) =>
-  new Promise(resolve => {
-    const listener = () => {
+function thenify(type, readyState) {
+  return new Promise(function(resolve) {
+    const listener = function() {
       if (readyState.test(document.readyState)) {
         document.removeEventListener(type, listener);
 
         resolve();
       }
-    };
+    }
 
     document.addEventListener(type, listener);
 
     listener();
   });
+}
 
 // export thenfied parsed, contentLoaded, and loaded
-export const parsed = thenify("readystatechange", /^(?:interactive|complete)$/);
-export const contentLoaded = thenify("DOMContentLoaded", /^(?:interactive|complete)$/);
-export const loaded = thenify("readystatechange", /^complete$/);
+export var parsed = thenify("readystatechange", /^(?:interactive|complete)$/);
+export var contentLoaded = thenify("DOMContentLoaded", /^(?:interactive|complete)$/);
+export var loaded = thenify("readystatechange", /^complete$/);
